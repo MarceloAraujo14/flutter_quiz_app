@@ -41,7 +41,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
         const SizedBox(height: 20),
         //
         ...questions[questionN]
-            .getShuffler()
+            .shuffler
             .map((answer) => AnswerButton(() {
                   nextQuestion(answer);
                 }, answer))

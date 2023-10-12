@@ -14,7 +14,7 @@ class ResultScreen extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          resultString(answers),
+          _resultString(answers),
           textAlign: TextAlign.center,
           style: const TextStyle(
             color: Color.fromARGB(216, 255, 255, 255),
@@ -30,7 +30,7 @@ class ResultScreen extends StatelessWidget {
                 height: 250,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
-                  child: buildResults(answers),
+                  child: _buildResults(answers),
                 ),
               ),
             )
@@ -68,7 +68,7 @@ class ResultScreen extends StatelessWidget {
   }
 }
 
-String resultString(List<String> answers) {
+String _resultString(List<String> answers) {
   var corrects = 0;
   var total = answers.length;
   for (var i = 0; i < total; i++) {
@@ -84,7 +84,7 @@ String resultString(List<String> answers) {
   return "You've score $corrects from $total questions.";
 }
 
-Column buildResults(List<String> answers) {
+Column _buildResults(List<String> answers) {
   var total = answers.length;
   List<QuestionResult> resultList = [];
   for (var i = 0; i < total; i++) {

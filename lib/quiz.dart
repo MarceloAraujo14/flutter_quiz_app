@@ -13,7 +13,7 @@ class QuizWidget extends StatefulWidget {
 }
 
 class _QuizWidgetState extends State<QuizWidget> {
-  List<String> answers = [];
+  final List<String> _answers = [];
 
   var activeScreen = 'home-screen';
 
@@ -24,9 +24,9 @@ class _QuizWidgetState extends State<QuizWidget> {
   }
 
   void selectAnswer(String answer) {
-    answers.add(answer);
+    _answers.add(answer);
 
-    if (questions.length == answers.length) {
+    if (questions.length == _answers.length) {
       setState(() {
         activeScreen = 'result-screen';
       });
@@ -44,7 +44,7 @@ class _QuizWidgetState extends State<QuizWidget> {
             child: switch (activeScreen) {
               'home-screen' => HomeScreen(toQuestionScreen),
               'questions-screen' => QuestionScreen(selectAnswer),
-              'result-screen' => ResultScreen(toQuestionScreen, answers),
+              'result-screen' => ResultScreen(toQuestionScreen, _answers),
               _ => HomeScreen(toQuestionScreen)
             },
           ),
