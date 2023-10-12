@@ -26,28 +26,26 @@ class _QuestionScreenState extends State<QuestionScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            questions[questionN].question,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-                color: Color.fromARGB(80, 255, 255, 255), fontSize: 20),
-          ),
-          //
-          const SizedBox(height: 20),
-          //
-          ...questions[questionN]
-              .getShuffler()
-              .map((answer) => AnswerButton(() {
-                    nextQuestion(answer);
-                  }, answer))
-        ],
-      ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text(
+          questions[questionN].question,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+              color: Color.fromARGB(80, 255, 255, 255), fontSize: 20),
+        ),
+        //
+        const SizedBox(height: 20),
+        //
+        ...questions[questionN]
+            .getShuffler()
+            .map((answer) => AnswerButton(() {
+                  nextQuestion(answer);
+                }, answer))
+      ],
     );
   }
 }

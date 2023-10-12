@@ -36,14 +36,20 @@ class _QuizWidgetState extends State<QuizWidget> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Scaffold(
-      backgroundColor: bgColor,
-      body: switch (activeScreen) {
-        'home-screen' => HomeScreen(toQuestionScreen),
-        'questions-screen' => QuestionScreen(selectAnswer),
-        'result-screen' => ResultScreen(toQuestionScreen, answers),
-        _ => HomeScreen(toQuestionScreen)
-      },
-    ));
+      home: Scaffold(
+        backgroundColor: bgColor,
+        body: Container(
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          child: Center(
+            child: switch (activeScreen) {
+              'home-screen' => HomeScreen(toQuestionScreen),
+              'questions-screen' => QuestionScreen(selectAnswer),
+              'result-screen' => ResultScreen(toQuestionScreen, answers),
+              _ => HomeScreen(toQuestionScreen)
+            },
+          ),
+        ),
+      ),
+    );
   }
 }
